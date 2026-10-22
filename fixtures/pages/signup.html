@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Create your workspace</title>
+<style>
+  body { font: 15px/1.5 system-ui, sans-serif; margin: 0; display: flex; justify-content: center; }
+  .card { width: 460px; margin-top: 40px; padding: 24px; border: 1px solid #e5e7eb; }
+  ol.steps { display: flex; gap: 12px; list-style: none; padding: 0; }
+  ol.steps a { text-decoration: none; }
+  .row { margin-bottom: 14px; }
+  .row input[type=text], .row input[type=email], .row input[type=password] { width: 100%; padding: 6px; }
+  .nav { display: flex; justify-content: space-between; margin-top: 18px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <ol class="steps">
+    <li><a href="#account">1. Account</a></li>
+    <li><a href="#workspace">2. Workspace</a></li>
+    <li><a href="#invite">3. Invite team</a></li>
+  </ol>
+  <h1>Create your workspace</h1>
+  <form>
+    <div class="row"><label for="ws">Workspace name</label><input type="text" id="ws" name="workspace" placeholder="acme-inc"></div>
+    <div class="row"><label for="work-email">Work email</label><input type="email" id="work-email" name="email"></div>
+    <div class="row"><label for="pw">Password</label><input type="password" id="pw" name="password"></div>
+    <div class="row">
+      <span>Team size</span>
+      <label><input type="radio" name="size" value="1"> Just me</label>
+      <label><input type="radio" name="size" value="10"> 2-10</label>
+      <label><input type="radio" name="size" value="50"> 11-50</label>
+    </div>
+    <div class="row"><label><input type="checkbox" name="terms"> I agree to the <a href="/terms">Terms of Service</a></label></div>
+    <div class="row"><label><input type="checkbox" name="news"> Send me product updates</label></div>
+    <div class="nav">
+      <button type="button">Back</button>
+      <button type="button" class="link">Skip for now</button>
+      <button type="submit">Next</button>
+    </div>
+  </form>
+  <p>Already have an account? <a href="/login">Sign in</a></p>
+  <p><a href="/sso">Continue with SSO</a> &middot; <a href="/help/signup">Need help?</a></p>
+</div>
+</body>
+</html>

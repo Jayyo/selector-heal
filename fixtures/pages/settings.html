@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Account settings</title>
+<style>
+  body { font: 14px/1.5 system-ui, sans-serif; margin: 0; color: #1f2933; }
+  header, footer { display: flex; gap: 16px; padding: 12px 24px; background: #f3f4f6; }
+  .layout { display: flex; }
+  aside { width: 200px; padding: 16px; border-right: 1px solid #e5e7eb; }
+  aside a { display: block; padding: 6px 0; }
+  main { flex: 1; padding: 24px; max-width: 640px; }
+  .field { margin-bottom: 16px; }
+  label { display: block; font-weight: 600; margin-bottom: 4px; }
+  input[type=text], input[type=email], input[type=tel], select { width: 100%; padding: 6px; }
+  .actions { display: flex; gap: 8px; margin-top: 24px; }
+  .danger { color: #b91c1c; }
+</style>
+</head>
+<body>
+<header>
+  <a href="/">Home</a>
+  <a href="/projects">Projects</a>
+  <a href="/settings">Settings</a>
+  <a href="/help">Help</a>
+  <button aria-label="Open notifications">&#128276;</button>
+</header>
+<div class="layout">
+  <aside>
+    <a href="/settings/profile">Profile</a>
+    <a href="/settings/security">Security</a>
+    <a href="/settings/notifications">Notifications</a>
+    <a href="/settings/billing">Billing</a>
+    <a href="/settings/integrations">Integrations</a>
+  </aside>
+  <main>
+    <h1>Profile</h1>
+    <form id="profile-form">
+      <div class="field">
+        <label for="display_name">Display name</label>
+        <input type="text" id="display_name" name="display_name" value="Jamie Park">
+      </div>
+      <div class="field">
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email" value="jamie@example.com">
+      </div>
+      <div class="field">
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" placeholder="+82 10 0000 0000">
+      </div>
+      <div class="field">
+        <label for="tz">Time zone</label>
+        <select id="tz" name="timezone">
+          <option>Asia/Seoul</option><option>UTC</option><option>America/New_York</option>
+        </select>
+      </div>
+      <fieldset>
+        <legend>Notifications</legend>
+        <label><input type="checkbox" name="notify_email" checked> Email updates</label>
+        <label><input type="checkbox" name="notify_sms"> SMS alerts</label>
+        <label><input type="checkbox" name="notify_digest"> Weekly digest</label>
+      </fieldset>
+      <div class="actions">
+        <button type="submit" class="btn primary">Save changes</button>
+        <button type="button" class="btn">Cancel</button>
+        <button type="button" class="btn">Reset form</button>
+      </div>
+    </form>
+    <h2>Danger zone</h2>
+    <p>Deleting your account removes all projects.</p>
+    <button type="button" class="btn danger" data-testid="delete-account">Delete account</button>
+    <button type="button" class="btn">Export data</button>
+  </main>
+</div>
+<footer>
+  <a href="/privacy">Privacy</a>
+  <a href="/terms">Terms</a>
+  <a href="/help">Help</a>
+  <a href="/contact">Contact</a>
+</footer>
+</body>
+</html>

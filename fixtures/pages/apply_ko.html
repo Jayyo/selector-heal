@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>지원사업 신청서 작성</title>
+<style>
+  body { font: 14px/1.6 sans-serif; margin: 0; }
+  #gnb { display: flex; gap: 18px; padding: 12px 24px; background: #0b3d91; }
+  #gnb a { color: #fff; }
+  #container { padding: 24px; max-width: 820px; }
+  table.form { width: 100%; border-collapse: collapse; }
+  table.form th { width: 160px; background: #f1f5f9; text-align: left; padding: 8px; border: 1px solid #cbd5e1; }
+  table.form td { padding: 8px; border: 1px solid #cbd5e1; }
+  .btn_area { margin-top: 20px; display: flex; gap: 8px; justify-content: center; }
+  .quick { margin-top: 24px; display: flex; gap: 12px; }
+</style>
+</head>
+<body>
+<div id="gnb">
+  <a href="/main.do">홈</a>
+  <a href="/notice/list.do">공지사항</a>
+  <a href="/biz/list.do">사업공고</a>
+  <a href="/faq/list.do">자주 묻는 질문</a>
+  <a href="/mypage/main.do">마이페이지</a>
+</div>
+<div id="container">
+  <h2>신청서 작성</h2>
+  <table class="form">
+    <tr><th><label for="txtCorpNm">기업명</label></th><td><input type="text" id="txtCorpNm" name="corpNm" title="기업명 입력"></td></tr>
+    <tr><th><label for="txtBizNo">사업자등록번호</label></th><td><input type="text" id="txtBizNo" name="bizNo" placeholder="000-00-00000"> <button type="button" id="btnBizNoChk">중복확인</button></td></tr>
+    <tr><th>기업 구분</th><td>
+      <label><input type="radio" name="corpType" value="1" checked> 개인사업자</label>
+      <label><input type="radio" name="corpType" value="2"> 법인사업자</label></td></tr>
+    <tr><th><label for="selRegion">소재지</label></th><td><select id="selRegion" name="region">
+      <option>서울</option><option>세종</option><option>대전</option><option>부산</option></select></td></tr>
+    <tr><th><label for="txtAddr">주소</label></th><td><input type="text" id="txtAddr" name="addr" readonly>
+      <button type="button" id="btnAddrSearch">주소검색</button></td></tr>
+    <tr><th><label for="txtCeo">대표자명</label></th><td><input type="text" id="txtCeo" name="ceoNm"></td></tr>
+    <tr><th><label for="txtTel">연락처</label></th><td><input type="text" id="txtTel" name="telNo" placeholder="숫자만 입력"></td></tr>
+    <tr><th>첨부파일</th><td><button type="button" id="btnFileAdd">파일추가</button> <button type="button" id="btnFileDel">파일삭제</button></td></tr>
+  </table>
+  <p><label><input type="checkbox" id="chkAgree" name="agree"> 개인정보 수집 및 이용에 동의합니다</label>
+     <a href="/policy/privacy.do">전문보기</a></p>
+  <div class="btn_area">
+    <button type="button" id="btnTempSave">임시저장</button>
+    <button type="button" id="btnSave">신청하기</button>
+    <button type="button" id="btnCancel">취소</button>
+    <a href="/biz/list.do" id="btnList">목록</a>
+  </div>
+  <div class="quick">
+    <a href="/guide/apply.do">신청 안내</a>
+    <a href="/faq/list.do">자주 묻는 질문</a>
+    <a href="/qna/write.do">문의하기</a>
+  </div>
+</div>
+</body>
+</html>

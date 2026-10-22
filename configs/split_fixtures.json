@@ -1,0 +1,7 @@
+{
+  "group_by": "page",
+  "main_sources": ["fixtures"],
+  "test_sources": [],
+  "val_groups": ["settings.html"],
+  "test_groups": ["docs.html", "orders.html"]
+}

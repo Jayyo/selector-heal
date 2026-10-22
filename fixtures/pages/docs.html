@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Getting started - Acme SDK</title>
+<style>
+  body { font: 15px/1.6 system-ui, sans-serif; margin: 0; }
+  .top { display: flex; gap: 20px; padding: 12px 24px; border-bottom: 1px solid #ddd; align-items: center; }
+  .top input { margin-left: auto; }
+  .wrap { display: flex; }
+  .side { width: 220px; padding: 16px; }
+  .side a { display: block; padding: 3px 0; }
+  article { flex: 1; padding: 16px 32px; max-width: 760px; }
+  pre { background: #f6f8fa; padding: 12px; position: relative; }
+  pre button { position: absolute; top: 6px; right: 6px; }
+  .pager { display: flex; justify-content: space-between; margin: 32px 0; }
+  footer { display: flex; gap: 16px; padding: 16px 24px; background: #fafafa; }
+</style>
+</head>
+<body>
+<div class="top">
+  <a href="/" class="logo">Acme SDK</a>
+  <a href="/docs">Docs</a>
+  <a href="/api">API</a>
+  <a href="/blog">Blog</a>
+  <a href="https://github.com/acme/sdk">GitHub</a>
+  <input type="search" placeholder="Search docs" aria-label="Search docs">
+</div>
+<div class="wrap">
+  <nav class="side" aria-label="Documentation">
+    <a href="/docs/intro">Introduction</a>
+    <a href="/docs/install">Installation</a>
+    <a href="/docs/quickstart">Quick start</a>
+    <a href="/docs/config">Configuration</a>
+    <a href="/docs/auth">Authentication</a>
+    <a href="/docs/errors">Error handling</a>
+    <a href="/docs/pagination">Pagination</a>
+    <a href="/docs/webhooks">Webhooks</a>
+    <a href="/docs/testing">Testing</a>
+    <a href="/docs/deploy">Deployment</a>
+    <a href="/docs/faq">FAQ</a>
+    <a href="/docs/changelog">Changelog</a>
+  </nav>
+  <article>
+    <h1 id="getting-started">Getting started</h1>
+    <p>Install the package and create a client.</p>
+    <pre><code>pip install acme-sdk</code><button class="copy">Copy</button></pre>
+    <pre><code>from acme import Client
+client = Client(token="...")</code><button class="copy">Copy</button></pre>
+    <h2 id="first-request">Your first request</h2>
+    <pre><code>client.items.list(limit=10)</code><button class="copy">Copy</button></pre>
+    <p>See <a href="/docs/pagination">Pagination</a> for large result sets and
+       <a href="/docs/errors">Error handling</a> for retries.</p>
+    <details><summary>Using a proxy</summary><p>Set HTTPS_PROXY before creating the client.</p></details>
+    <div class="pager">
+      <a href="/docs/intro">Previous: Introduction</a>
+      <a href="/docs/install">Next: Installation</a>
+    </div>
+    <a href="https://github.com/acme/sdk/edit/main/docs/getting-started.md">Edit this page</a>
+    <button type="button">Was this page helpful?</button>
+  </article>
+</div>
+<footer>
+  <a href="/docs">Docs</a>
+  <a href="/api">API</a>
+  <a href="/blog">Blog</a>
+  <a href="/status">Status</a>
+  <a href="/privacy">Privacy</a>
+</footer>
+</body>
+</html>

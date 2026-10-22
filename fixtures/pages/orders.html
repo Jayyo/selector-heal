@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Orders</title>
+<style>
+  body { font: 14px/1.4 system-ui, sans-serif; margin: 24px; }
+  .toolbar { display: flex; gap: 8px; margin-bottom: 12px; }
+  table { border-collapse: collapse; width: 100%; }
+  th, td { border-bottom: 1px solid #e5e7eb; padding: 6px 8px; text-align: left; }
+  td button { margin-right: 4px; }
+  nav.pager { margin-top: 12px; display: flex; gap: 6px; }
+</style>
+</head>
+<body>
+<h1>Orders</h1>
+<div class="toolbar">
+  <button data-testid="new-order">New order</button>
+  <button>Export CSV</button>
+  <button aria-label="Filter orders">&#9881;</button>
+  <input type="search" placeholder="Search orders" name="q">
+  <select name="status"><option>All</option><option>Paid</option><option>Unpaid</option></select>
+</div>
+<table>
+  <thead><tr><th>Order</th><th>Customer</th><th>Status</th><th>Total</th><th>Actions</th></tr></thead>
+  <tbody>
+    <tr><td><a href="/orders/1024">#1024</a></td><td>Kim Minseo</td><td>Paid</td><td>$120</td>
+      <td><button id="order-1024-view">View</button><button id="order-1024-edit">Edit</button><button id="order-1024-del">Delete</button></td></tr>
+    <tr><td><a href="/orders/1025">#1025</a></td><td>Lee Jiwoo</td><td>Unpaid</td><td>$48</td>
+      <td><button id="order-1025-view">View</button><button id="order-1025-edit">Edit</button><button id="order-1025-del">Delete</button></td></tr>
+    <tr><td><a href="/orders/1026">#1026</a></td><td>Choi Yuna</td><td>Paid</td><td>$310</td>
+      <td><button id="order-1026-view">View</button><button id="order-1026-edit">Edit</button><button id="order-1026-del">Delete</button></td></tr>
+    <tr><td><a href="/orders/1027">#1027</a></td><td>Park Hajun</td><td>Refunded</td><td>$75</td>
+      <td><button id="order-1027-view">View</button><button id="order-1027-edit">Edit</button><button id="order-1027-del">Delete</button></td></tr>
+    <tr><td><a href="/orders/1028">#1028</a></td><td>Jung Seoyeon</td><td>Paid</td><td>$19</td>
+      <td><button id="order-1028-view">View</button><button id="order-1028-edit">Edit</button><button id="order-1028-del">Delete</button></td></tr>
+    <tr><td><a href="/orders/1029">#1029</a></td><td>Kang Doyun</td><td>Unpaid</td><td>$260</td>
+      <td><button id="order-1029-view">View</button><button id="order-1029-edit">Edit</button><button id="order-1029-del">Delete</button></td></tr>
+  </tbody>
+</table>
+<nav class="pager" aria-label="Pagination">
+  <a href="?page=1" rel="prev">Previous</a>
+  <a href="?page=1">1</a>
+  <a href="?page=2" aria-current="page">2</a>
+  <a href="?page=3">3</a>
+  <a href="?page=3" rel="next">Next</a>
+</nav>
+<p><button>Mark selected as paid</button> <button>Print invoices</button> <a href="/orders/archive">Archived orders</a></p>
+</body>
+</html>

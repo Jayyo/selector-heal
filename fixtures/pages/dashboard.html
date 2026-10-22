@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Analytics dashboard</title>
+<style>
+  body { font: 14px/1.4 system-ui, sans-serif; margin: 0; background: #f8fafc; }
+  .bar { display: flex; align-items: center; gap: 8px; padding: 10px 20px; background: #fff; border-bottom: 1px solid #e2e8f0; }
+  .bar .spacer { flex: 1; }
+  [role=tablist] { display: flex; gap: 4px; padding: 12px 20px; }
+  [role=tab] { padding: 6px 12px; border: 1px solid #cbd5e1; background: #fff; cursor: pointer; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding: 0 20px; }
+  .card { background: #fff; border: 1px solid #e2e8f0; padding: 16px; }
+  [role=menu] { display: flex; flex-direction: column; width: 160px; background: #fff; border: 1px solid #cbd5e1; margin: 20px; }
+  [role=menuitem] { padding: 6px 10px; cursor: pointer; }
+</style>
+</head>
+<body>
+<div class="bar">
+  <a href="/" data-testid="nav-home">Dashboard</a>
+  <a href="/reports">Reports</a>
+  <a href="/alerts">Alerts</a>
+  <span class="spacer"></span>
+  <button aria-label="Notifications" data-testid="notif-button">&#128276;</button>
+  <button aria-label="Settings">&#9881;</button>
+  <button aria-label="Account menu" id="mui-2041">JP</button>
+</div>
+<div role="tablist" aria-label="Views">
+  <div role="tab" tabindex="0" aria-selected="true">Overview</div>
+  <div role="tab" tabindex="-1">Analytics</div>
+  <div role="tab" tabindex="-1">Reports</div>
+  <div role="tab" tabindex="-1">Exports</div>
+</div>
+<div class="grid">
+  <div class="card"><h3>Visitors</h3><p>12,408 this week</p><button>View report</button> <a href="/reports/visitors">Details</a></div>
+  <div class="card"><h3>Signups</h3><p>342 this week</p><button>View report</button> <a href="/reports/signups">Details</a></div>
+  <div class="card"><h3>Revenue</h3><p>$8,120 this week</p><button>View report</button> <a href="/reports/revenue">Details</a></div>
+  <div class="card"><h3>Churn</h3><p>1.8%</p><button data-testid="churn-export">Export</button> <a href="/reports/churn">Details</a></div>
+  <div class="card"><h3>Errors</h3><p>27 open</p><button>Open tracker</button> <a href="/alerts">See alerts</a></div>
+  <div class="card"><h3>Latency</h3><p>p95 210 ms</p><button>Open trace</button> <a href="/reports/latency">Details</a></div>
+</div>
+<div role="menu" aria-label="Report actions">
+  <div role="menuitem" tabindex="-1">Rename</div>
+  <div role="menuitem" tabindex="-1">Duplicate</div>
+  <div role="menuitem" tabindex="-1">Move to folder</div>
+  <div role="menuitem" tabindex="-1">Archive</div>
+  <div role="menuitem" tabindex="-1">Delete</div>
+</div>
+<p style="padding: 0 20px"><button>Add widget</button> <button>Share dashboard</button> <button>Refresh data</button></p>
+</body>
+</html>
