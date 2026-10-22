@@ -1,0 +1,47 @@
+selector-heal
+Copyright (c) 2026 Jay Cho. The code in this repository is released under the
+MIT License (see LICENSE).
+
+ReproBreak-derived data
+-----------------------
+data/distributions/reprobreak_changes.json contains aggregate counts computed
+by src/selector_heal/reprobreak.py from locator_analysis.csv in ReproBreak:
+
+  ReproBreak: A Dataset of Reproducible Web Locator Breaks (ASE 2026)
+  https://github.com/rub-sq/ReproBreak (commit c603a0c)
+  https://doi.org/10.5281/zenodo.21171968
+
+No ReproBreak code or locator strings are redistributed here. ReproBreak is
+released under the following license:
+
+  Copyright 2026 Software Quality @ Ruhr University Bochum
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in all
+  copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.
+
+Base model
+----------
+No model weights or adapters are included. The training code fine-tunes
+Qwen2.5-3B-Instruct (https://huggingface.co/Qwen/Qwen2.5-3B-Instruct), which is
+distributed by Alibaba Cloud under the Qwen Research License Agreement.
+
+Collected pages
+---------------
+The page snapshots used for the published numbers are not included; the URL
+lists, the collector and per-page content hashes are. The pages belong to
+their respective owners.

@@ -1,0 +1,91 @@
+# Test corpus: evaluated once, after every choice was fixed on validation.
+# Both lists were written in August 2026 for a held-out evaluation. Hosts that
+# also appear in main.txt are not used as test (see configs/split.json).
+
+# list: test-a
+
+# Korean public-sector portals
+https://www.hometax.go.kr/
+https://www.minwon.go.kr/main
+https://www.nhis.or.kr/nhis/index.do
+https://www.nps.or.kr/jsppage/main.jsp
+https://www.kcomwel.or.kr/kcomwel/main.jsp
+https://www.customs.go.kr/kcs/main.do
+https://www.moel.go.kr/index.do
+https://www.molit.go.kr/portal.do
+https://www.law.go.kr/
+https://www.easylaw.go.kr/CSP/Main.laf
+https://www.scourt.go.kr/main/Main.work
+https://www.riss.kr/index.do
+https://www.ntis.go.kr/ThMain.do
+https://www.smtech.go.kr/
+https://www.nl.go.kr/
+https://www.safekorea.go.kr/idsiSFK/neo/main/main.html
+https://www.kepco.co.kr/site/home/main
+https://www.koreapost.go.kr/
+
+# Korean SaaS and business tools
+https://channel.io/ko
+https://www.flow.team/kr/index.php
+https://www.jandi.com/landing/kr
+https://kakaowork.com/
+https://www.worksmobile.com/kr/
+https://www.ecount.com/kr
+https://www.douzone.com/
+https://imweb.me/
+https://www.sixshop.com/
+https://www.makeshop.co.kr/
+https://toss.im/
+https://www.bizforms.co.kr/
+
+# Component galleries and design systems
+https://mantine.dev/core/button/
+https://www.radix-ui.com/primitives/docs/overview/introduction
+https://headlessui.com/react/menu
+https://blueprintjs.com/docs/
+https://rsuitejs.com/components/overview/
+https://quasar.dev/vue-components/button
+https://www.naiveui.com/en-US/os-theme/components/button
+https://arco.design/react/en-US/components/button
+https://semi.design/en-US/start/introduction
+https://baseweb.design/components/button/
+https://grommet.io/components
+https://react-bootstrap.netlify.app/docs/components/buttons
+
+# Open-source web apps and dashboards
+https://play.grafana.org/
+https://www.metabase.com/
+https://n8n.io/
+https://www.appsmith.com/
+https://budibase.com/
+https://directus.io/
+https://strapi.io/
+https://www.keycloak.org/
+
+# list: test-b
+
+https://www.ncloud.com/product/compute/server
+https://www.gabia.com/service/hosting
+https://www.cafe24.com/
+https://www.hiworks.com/
+https://www.dooray.com/
+https://spot.zum.com/
+https://www.aladin.co.kr/home/welcome.aspx
+https://www.yes24.com/main/default.aspx
+https://www.musinsa.com/main
+https://www.kurly.com/main
+https://www.hankyung.com/
+https://www.mk.co.kr/
+https://www.etnews.com/
+https://www.clien.net/service/
+https://www.ppomppu.co.kr/
+https://developer.apple.com/documentation/
+https://docs.python.org/3/
+https://kubernetes.io/docs/home/
+https://redis.io/docs/latest/
+https://www.postgresql.org/docs/
+https://fastapi.tiangolo.com/
+https://svelte.dev/docs/svelte/overview
+https://nextjs.org/docs
+https://astro.build/
+https://www.prisma.io/docs

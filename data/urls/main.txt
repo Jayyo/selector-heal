@@ -1,0 +1,151 @@
+# Main corpus: training and validation pages.
+# Public pages chosen to look like the screens guides and UI tests run on:
+# Korean public-sector portals, SaaS and consumer sites, component galleries,
+# open-source app sites and developer docs. Sites change; re-collecting gives
+# a different corpus than the one the published numbers came from.
+
+# list: main
+
+# Korean public-sector and SME portals
+https://www.k-startup.go.kr/web/contents/bizpbanc-ongoing.do
+https://www.bizinfo.go.kr/web/lay1/bbs/S1T122C128/AS/74/list.do
+https://www.smes.go.kr/main/index
+https://www.kosmes.or.kr/intro/intro.html
+https://www.sbiz.or.kr/sup/main/main.do
+https://www.gov.kr/portal/main
+https://www.work24.go.kr/cm/main.do
+https://www.data.go.kr/index.do
+https://www.nts.go.kr/nts/main.do
+https://www.kipris.or.kr/khome/main.do
+https://www.iros.go.kr/index.jsp
+https://www.wetax.go.kr/main.do
+https://www.epeople.go.kr/index.jsp
+https://www.alio.go.kr/home.do
+https://www.g2b.go.kr/index.jsp
+
+# Korean consumer and SaaS sites
+https://www.notion.so/ko-kr
+https://www.kakaocorp.com/page/
+https://brunch.co.kr/
+https://www.inflearn.com/courses
+https://map.naver.com/p
+https://www.coupang.com/
+https://www.11st.co.kr/
+https://www.wadiz.kr/web/main
+https://www.saramin.co.kr/zf_user/
+https://www.jobkorea.co.kr/
+
+# Component galleries and design systems
+https://mui.com/material-ui/all-components/
+https://ant.design/components/overview
+https://getbootstrap.com/docs/5.3/examples/dashboard/
+https://getbootstrap.com/docs/5.3/forms/overview/
+https://tailwindui.com/components
+https://primefaces.org/primereact/
+https://element-plus.org/en-US/component/button.html
+https://vuetifyjs.com/en/components/all/
+https://chakra-ui.com/docs/components
+https://ui.shadcn.com/examples/dashboard
+https://carbondesignsystem.com/components/button/usage/
+https://polaris.shopify.com/components
+https://developer.microsoft.com/en-us/fluentui#/controls/web
+https://spectrum.adobe.com/page/button/
+https://atlassian.design/components
+
+# Open-source web app sites and demos
+https://demo.payloadcms.com/
+https://ionicframework.com/docs/components
+https://nasa.github.io/openmct/
+https://ghiscoding.github.io/Angular-Slickgrid/
+https://playwright.dev/docs/intro
+https://demo.mattermost.com/
+https://insomnia.rest/
+https://ghost.org/
+https://www.docker.com/
+https://grafana.com/
+
+# General sites with forms and settings screens
+https://github.com/settings/profile
+https://news.ycombinator.com/
+https://stackoverflow.com/questions
+https://www.wikipedia.org/
+https://developer.mozilla.org/ko/
+https://web.dev/
+https://vercel.com/
+https://supabase.com/
+https://www.figma.com/
+https://slack.com/intl/ko-kr/
+
+# Korean public-sector portals
+https://www.gov.kr/portal/civilservice
+https://www.kepco.co.kr/site/home/cyber
+https://www.nts.go.kr/nts/na/ntt/selectNttList.do?mi=2223&bbsId=1002
+https://www.hira.or.kr/main.do
+https://www.kftc.or.kr/kftc/main/EgovMain.do
+https://www.acrc.go.kr/menu.es?mid=a10101000000
+https://www.mois.go.kr/frt/a01/frtMain.do
+https://www.msit.go.kr/index.do
+https://www.moe.go.kr/main.do
+https://www.mfds.go.kr/index.do
+https://www.kotra.or.kr/subList/20000000000841
+https://www.k-startup.go.kr/web/contents/webmain.do
+https://www.smes.go.kr/venturein/main
+https://www.nipa.kr/home/main.do
+https://www.keit.re.kr/index.es?sid=a1
+https://www.kiat.or.kr/front/user/main.do
+https://www.nrf.re.kr/index
+https://www.koita.or.kr/main.do
+
+# Korean SaaS and business tools
+https://www.gabia.com/service/domain
+https://www.cafe24.com/?controller=app_new_main
+https://www.ncloud.com/product/networking
+https://www.wanted.co.kr/wdlist
+https://www.rocketpunch.com/jobs
+https://www.notion.com/ko/product
+https://slid.cc/ko
+https://typed.do/ko
+https://www.swit.io/ko
+https://www.collabee.co/
+https://www.dooray.com/service/project
+https://www.hiworks.com/service/groupware
+
+# Component galleries and design systems
+https://mui.com/material-ui/react-button/
+https://ant.design/components/table
+https://chakra-ui.com/docs/components/button
+https://ui.shadcn.com/docs/components/data-table
+https://primereact.org/datatable/
+https://element-plus.org/en-US/component/table.html
+https://vuetifyjs.com/en/components/data-tables/basics/
+https://carbondesignsystem.com/components/data-table/usage/
+https://polaris.shopify.com/components/tables/index-table
+https://spectrum.adobe.com/page/table/
+https://atlassian.design/components/dynamic-table/examples
+https://developer.microsoft.com/en-us/fluentui#/controls/web/detailslist
+https://www.patternfly.org/components/table
+https://carbon.sap.com/
+https://opensource.zalando.com/
+https://backstage.io/docs/overview/what-is-backstage
+
+# Open-source apps, dashboards and docs
+https://demo.nextcloud.com/
+https://play.grafana.org/d/000000012/grafana-play-home
+https://www.metabase.com/docs/latest/
+https://n8n.io/integrations/
+https://www.appsmith.com/templates
+https://budibase.com/templates/
+https://directus.io/docs/getting-started/overview
+https://strapi.io/features
+https://www.keycloak.org/documentation
+https://superset.apache.org/docs/intro
+https://redash.io/help/
+https://airbyte.com/connectors
+https://www.getdbt.com/product/what-is-dbt
+https://temporal.io/docs
+https://argo-cd.readthedocs.io/en/stable/
+https://kubernetes.io/docs/concepts/workloads/pods/
+https://docs.gitlab.com/ee/user/project/
+https://jenkins.io/doc/book/
+https://www.sonarsource.com/products/sonarqube/
+https://sentry.io/for/dashboards/
