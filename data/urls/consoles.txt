@@ -1,0 +1,35 @@
+# Public admin, project-tracking and back-office consoles that open without an
+# account (demo instances, public trackers and admin templates). A convenience
+# sample, not a random sample of business software; several may redirect to a
+# login page or no longer resolve.
+# list: consoles
+https://play.grafana.org/d/000000012/grafana-play-home
+https://demo.nocodb.com/
+https://demo.humhub.com/dashboard
+https://demo.dolibarr.org/public/demo/index.php
+https://www.redmine.org/projects/redmine/issues
+https://community.openproject.org/projects/openproject/work_packages
+https://demo.matomo.cloud/index.php?module=CoreHome&action=index&idSite=1&period=day&date=today
+https://demo.seatable.io/
+https://demo.datatables.net/
+https://demo.saleor.io/
+https://gitlab.com/explore/projects
+https://sourceforge.net/directory/
+https://www.wikidata.org/wiki/Special:RecentChanges
+https://demo.opensourcepos.com/
+https://demo.invoiceninja.com/
+https://phabricator.wikimedia.org/maniphest/
+https://bugzilla.mozilla.org/describecomponents.cgi
+https://issues.apache.org/jira/projects
+https://demo.mediawiki.org/wiki/Special:AllPages
+https://tracker.debian.org/pkg/dpkg
+https://demo.gitea.com/explore/repos
+https://codeberg.org/explore/repos
+https://demo.phpmyadmin.net/master-config/
+https://marmelab.com/react-admin-demo/
+https://example.refine.dev/
+https://adminlte.io/themes/v3/
+https://coreui.io/demos/bootstrap/5.1/free/
+https://preview.tabler.io/
+https://gitlab.com/gitlab-org/gitlab/-/issues
+https://github.com/microsoft/vscode/issues

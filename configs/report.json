@@ -1,0 +1,28 @@
+{
+  "manifest": "splits.json",
+  "gate": "gate.json",
+  "budget": 0.02,
+  "min_attempts": 30,
+  "threshold_condition": "lookalike",
+  "order": "shuffle:1",
+  "conditions": {
+    "lookalike": {
+      "val": "data/main_lookalike",
+      "test": "data/test_lookalike",
+      "model": {"val": "dumps/model_val_lookalike.jsonl", "test": "dumps/model_test_lookalike_s1.jsonl"},
+      "base": {"test": "dumps/base_test_lookalike.jsonl"},
+      "orders": [
+        "dumps/model_test_lookalike_s1.jsonl",
+        "dumps/model_test_lookalike_s2.jsonl",
+        "dumps/model_test_lookalike_s3.jsonl",
+        "dumps/model_test_lookalike_s4.jsonl"
+      ]
+    },
+    "uniform": {
+      "val": "data/val_uniform",
+      "test": "data/test_uniform",
+      "model": {"val": "dumps/model_val_uniform.jsonl", "test": "dumps/model_test_uniform.jsonl"},
+      "base": {"test": "dumps/base_test_uniform.jsonl"}
+    }
+  }
+}
