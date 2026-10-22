@@ -1,0 +1,12 @@
+{
+  "manifest": "splits.json",
+  "gate": "gate.json",
+  "budget": 0.1,
+  "min_attempts": 3,
+  "threshold_condition": "lookalike",
+  "figure": false,
+  "conditions": {
+    "lookalike": {"val": "lookalike", "test": "lookalike"},
+    "uniform": {"val": "uniform", "test": "uniform"}
+  }
+}
