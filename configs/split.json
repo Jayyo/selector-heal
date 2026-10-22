@@ -1,0 +1,18 @@
+{
+  "main_sources": ["main"],
+  "main_url_lists": ["../data/urls/main.txt"],
+  "test_sources": ["test-a", "test-b"],
+  "val_groups": [
+    "carbondesignsystem.com",
+    "smes.go.kr",
+    "11st.co.kr",
+    "data.go.kr",
+    "epeople.go.kr",
+    "primefaces.org",
+    "wikipedia.org"
+  ],
+  "val_hash_prefixes": ["0", "1"],
+  "merge": {
+    "primereact.org": "primefaces.org"
+  }
+}
