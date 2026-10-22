@@ -207,20 +207,22 @@ def report(config: Path, out: Path, root: Path | None = None) -> dict:
             if split == "test":
                 entry["ci"] = group_bootstrap(rows, preds, list(CI_KEYS))
                 if "model" in preds:
-                    for other in ("top", "gate"):
-                        if other not in preds:
-                            entry[f"paired_model_vs_{other}"] = None
+                    for a, b in (("model", "top"), ("model", "gate"), ("model_tau", "gate")):
+                        if a not in preds or b not in preds:
+                            entry[f"paired_{a}_vs_{b}"] = None
                             continue
-                        entry[f"paired_model_vs_{other}"] = group_bootstrap(
-                            rows, {"model": preds["model"], other: preds[other]}, list(CI_KEYS),
-                            paired=("model", other))["_paired"]
+                        entry[f"paired_{a}_vs_{b}"] = group_bootstrap(
+                            rows, {a: preds[a], b: preds[b]}, list(CI_KEYS),
+                            paired=(a, b))["_paired"]
                     entry["per_group_model"] = per_group(rows, preds["model"])
                 entry["per_group_top"] = per_group(rows, preds["top"])
                 entry["breakdown"] = breakdown(rows, preds)
                 sc = _scores(rows, gate, model)
                 entry["curves"] = {k: [{x: p[x] for x in ("tau", "coverage", "wrong_per_attempt",
-                                                          "attempts")} for p in curve(rows, s, a)]
+                                                          "successor_recall", "attempts")}
+                                       for p in curve(rows, s, a)]
                                    for k, (s, a) in sc.items()}
+                entry["at_coverage"] = at_coverage(entry["curves"])
                 if c.get("orders"):
                     dumps = [_load_dump(P(o), rows) for o in c["orders"]]
                     names = [next(iter(d.values()))["order"] for d in dumps]
@@ -241,6 +243,22 @@ def report(config: Path, out: Path, root: Path | None = None) -> dict:
                                       encoding="utf-8")
     print(f"wrote {out}/summary.json, tables.md")
     return summary
+
+
+def at_coverage(curves: dict, targets=(0.3, 0.4, 0.5, 0.55, 0.6, 0.7, 0.8)) -> dict:
+    """Risk and recall of each sweep at the first threshold reaching each coverage."""
+    out = {}
+    for k, pts in curves.items():
+        row = {}
+        for t in targets:
+            reach = [p for p in pts if p["coverage"] is not None and p["coverage"] >= t]
+            if reach:
+                p = min(reach, key=lambda p: p["coverage"])
+                row[str(t)] = {"coverage": round(p["coverage"], 4),
+                               "wrong_per_attempt": p["wrong_per_attempt"],
+                               "successor_recall": p["successor_recall"]}
+        out[k] = row
+    return out
 
 
 def _thin(pts: list, n: int) -> list:
@@ -266,7 +284,7 @@ def tables(s: dict) -> str:
     lines = [f"Thresholds chosen on {s['threshold_rows']} validation rows "
              f"(budget {s['budget']:.0%} wrong answers per attempt, at least "
              f"{s['min_attempts']} attempts): "
-             + ", ".join(f"{k} {_f(v, 2) if v is not None else 'none qualifies'}"
+             + ", ".join(f"{k} {_f(v, 3 if abs(v) < 1 else 2) if v is not None else 'none qualifies'}"
                          for k, v in t.items()), ""]
     for cond, res in s["conditions"].items():
         for split in ("test", "val"):
@@ -305,12 +323,17 @@ def figure(s: dict, path: Path):
         else "DejaVu Sans"
     plt.rcParams.update({"font.family": family, "font.size": 10, "axes.edgecolor": grid,
                          "axes.labelcolor": ink2, "xtick.color": ink2, "ytick.color": ink2})
+    titles = {"lookalike": "Look-alike deletions", "uniform": "Uniform deletions"}
     conds = list(s["conditions"])
-    fig, axes = plt.subplots(1, len(conds), figsize=(5.2 * len(conds), 4.4), sharey=True)
+    fig, axes = plt.subplots(1, len(conds), figsize=(5.4 * len(conds), 4.6), sharey=True)
     axes = np.atleast_1d(axes)
     ymax = 0.0
     for ax, cond in zip(axes, conds):
         e = s["conditions"][cond]["test"]
+        ax.axhline(s["budget"], color="#CBD5E1", lw=1.2, zorder=1)
+        ax.annotate(f"{s['budget']:.0%} budget, met on validation",
+                    (0.12, s["budget"]), xytext=(0, 3), textcoords="offset points",
+                    fontsize=8, color=ink2)
         for key in ("retrieval", "gate", "model"):
             pts = [p for p in e["curves"].get(key, []) if p["wrong_per_attempt"] is not None
                    and p["attempts"] >= 10]
@@ -322,19 +345,28 @@ def figure(s: dict, path: Path):
             ymax = max(ymax, max(ys))
             ax.plot(xs, ys, color=color, lw=2, solid_capstyle="round", label=label, zorder=2)
         m = e["methods"]
-        marks = [("top", "Top candidate", "#94A3B8", "^"), ("fallback", "Fallback chain", "#64748B", "D"),
-                 ("base", "3B, not fine-tuned", "#64748B", "v"),
-                 ("model", "Fine-tuned, own abstain", "#0046FF", "o")]
-        for key, label, color, marker in marks:
+        marks = [("top", "Top candidate", "#94A3B8", "^", (-70, 8)),
+                 ("fallback", "Fallback chain", "#64748B", "D", (8, 6)),
+                 ("model", "Fine-tuned, own abstain", "#0046FF", "o", (10, -14)),
+                 ("model_tau", None, "#0046FF", "s", None),
+                 ("gate", None, "#64748B", "s", None)]
+        for key, label, color, marker, off in marks:
             v = m.get(key)
             if not v or v["coverage"] is None or v["wrong_per_attempt"] is None:
                 continue
             ax.scatter([v["coverage"]], [v["wrong_per_attempt"]], s=64, color=color, marker=marker,
                        edgecolor="white", linewidth=2, zorder=3)
-            ax.annotate(label, (v["coverage"], v["wrong_per_attempt"]), xytext=(6, 6),
-                        textcoords="offset points", fontsize=8.5, color=ink)
+            if label:
+                ax.annotate(label, (v["coverage"], v["wrong_per_attempt"]), xytext=off,
+                            textcoords="offset points", fontsize=8.5, color=ink)
             ymax = max(ymax, v["wrong_per_attempt"])
-        ax.set_title(f"{cond.capitalize()} deletions (test, {e['rows']} rows)", color=ink,
+        if "model_tau" in m and "gate" in m:
+            v = m["gate"]
+            ax.annotate("thresholds chosen on validation\n(learned gate and fine-tuned 3B)",
+                        (v["coverage"], v["wrong_per_attempt"]), xytext=(0.04, 0.58),
+                        textcoords="axes fraction", fontsize=8.5, color=ink,
+                        arrowprops=dict(arrowstyle="-", color=ink2, lw=1))
+        ax.set_title(f"{titles.get(cond, cond)} (test, {e['rows']} rows)", color=ink,
                      fontsize=11, loc="left")
         ax.set_xlabel("coverage (share of broken steps answered)")
         ax.grid(color=grid, lw=1)
@@ -343,7 +375,8 @@ def figure(s: dict, path: Path):
         for sp in ("top", "right"):
             ax.spines[sp].set_visible(False)
     axes[0].set_ylabel("wrong answers per attempt")
-    axes[0].set_ylim(0, min(1.0, ymax * 1.12 + 0.01))
+    # the untuned model sits far above everything else; it is in the table, not the plot
+    axes[0].set_ylim(0, 0.45)
     axes[0].legend(frameon=False, fontsize=8.5, loc="upper left", labelcolor=ink)
     fig.tight_layout()
     fig.savefig(path, dpi=180, facecolor="white")
