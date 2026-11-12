@@ -94,6 +94,14 @@ top candidate: the footer link (wrong)     learned gate: abstains (p = 0.26)
 fallback chain: its CSS path finds the right link     fine-tuned 3B: picks it (margin +3.55)
 ```
 
+## Background
+
+Before adding guide repair to [Reflow](https://reflowguide.com), I wanted to
+see whether a model could find a recorded element again after a page changed.
+I ran the first tests in August 2026, and I also wanted to cover the case where
+the feature had simply been removed. This version was rebuilt on public pages
+and retrained in October.
+
 ## How it works
 
 1. **Collect.** Headless Chromium renders each public URL, stamps every element
